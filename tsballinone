@@ -8,26 +8,44 @@ for i, obj in pairs(objects) do
     end
 end
 local platform = Instance.new("Part")
-platform.Size = Vector3.new(300, 1, 300)
+platform.Size = Vector3.new(1000, 1, 1000)
 platform.Position = Vector3.new(0, 0, 0)
 platform.Anchored = true
 platform.CanCollide = true
 platform.Color = Color3.fromRGB(148, 0, 211)
 platform.Material = Enum.Material.ForceField
 
-platform.Parent = game.Workspace
 local player = game.Players.LocalPlayer
-local originalPosition = nil
 
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.V then
-        originalPosition = player.Character.HumanoidRootPart.Position
-        player.Character:MoveTo(Vector3.new(0, 215, 0))
-    elseif input.KeyCode == Enum.KeyCode.C and originalPosition then
-        player.Character:MoveTo(originalPosition)
-        originalPosition = nil
+local teleportOffset = Vector3.new(0, -210, 0) -- Offset to teleport the player downwards
+
+game:GetService("UserInputService").InputBegan:Connect(function(input, isProcessed)
+    if not isProcessed and input.KeyCode == Enum.KeyCode.V then
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            if humanoidRootPart then
+                humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.new(teleportOffset)
+            end
+        end
     end
 end)
+local player = game.Players.LocalPlayer
+
+local teleportOffset = Vector3.new(0, 210, 0) -- Offset to teleport the player downwards
+
+game:GetService("UserInputService").InputBegan:Connect(function(input, isProcessed)
+    if not isProcessed and input.KeyCode == Enum.KeyCode.C then
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            if humanoidRootPart then
+                humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.new(teleportOffset)
+            end
+        end
+    end
+end)
+
 local Player = game.Players.LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 
