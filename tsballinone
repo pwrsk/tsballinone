@@ -8,14 +8,16 @@ for i, obj in pairs(objects) do
     end
 end
 local platform = Instance.new("Part")
-platform.Size = Vector3.new(1000, 1, 1000)
+platform.Size = Vector3.new(1300, 1, 1300)
 platform.Position = Vector3.new(0, 0, 0)
 platform.Anchored = true
 platform.CanCollide = true
 platform.Color = Color3.fromRGB(148, 0, 211)
 platform.Material = Enum.Material.ForceField
 
+platform.Parent = game.Workspace
 local player = game.Players.LocalPlayer
+local originalPosition = nil
 
 local teleportOffset = Vector3.new(0, -210, 0) -- Offset to teleport the player downwards
 
