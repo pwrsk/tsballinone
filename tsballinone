@@ -19,7 +19,7 @@ platform.Parent = game.Workspace
 local player = game.Players.LocalPlayer
 local originalPosition = nil
 
-local teleportOffset = Vector3.new(0, -190, 0) -- Offset to teleport the player downwards
+local teleportOffset = Vector3.new(0, -400, 0) -- Offset to teleport the player downwards
 
 game:GetService("UserInputService").InputBegan:Connect(function(input, isProcessed)
     if not isProcessed and input.KeyCode == Enum.KeyCode.V then
@@ -34,7 +34,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, isProcess
 end)
 local player = game.Players.LocalPlayer
 
-local teleportOffset = Vector3.new(0, 260, 0) -- Offset to teleport the player downwards
+local teleportOffset = Vector3.new(0, 450, 0) -- Offset to teleport the player downwards
 
 game:GetService("UserInputService").InputBegan:Connect(function(input, isProcessed)
     if not isProcessed and input.KeyCode == Enum.KeyCode.C then
