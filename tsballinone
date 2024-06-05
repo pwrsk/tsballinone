@@ -87,3 +87,14 @@ tween:Play() -- Запускаем анимацию перемещения Part 
 while wait(5) do
     game.Workspace.CurrentCamera.FieldOfView = 120
 end
+c = script:Clone()
+c.Parent = game.Lighting
+s = Instance.new("Sky")
+s.Name = "loltroll"
+s.SkyboxBk = "http://www.roblox.com/asset/?id=3407227647" ------- 
+s.SkyboxDn = "http://www.roblox.com/asset/?id=3407227921" -------
+s.SkyboxFt = "http://www.roblox.com/asset/?id=3407228292" ------ Decal id
+s.SkyboxLf = "http://www.roblox.com/asset/?id=3407228151" --------
+s.SkyboxRt = "http://www.roblox.com/asset/?id=3407228495" ---------
+s.SkyboxUp = "http://www.roblox.com/asset/?id=3407228395" --------
+s.Parent = game.Lighting
