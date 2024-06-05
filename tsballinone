@@ -34,7 +34,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, isProcess
 end)
 local player = game.Players.LocalPlayer
 
-local teleportOffset = Vector3.new(0, 230, 0) -- Offset to teleport the player downwards
+local teleportOffset = Vector3.new(0, 260, 0) -- Offset to teleport the player downwards
 
 game:GetService("UserInputService").InputBegan:Connect(function(input, isProcessed)
     if not isProcessed and input.KeyCode == Enum.KeyCode.C then
