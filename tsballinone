@@ -1,0 +1,70 @@
+local map = game.Workspace.Map
+
+local objects = map:GetDescendants()
+
+for i, obj in pairs(objects) do
+    if obj:IsA("BasePart") then
+        obj.Color = Color3.fromRGB(0, 0, 0)
+    end
+end
+local platform = Instance.new("Part")
+platform.Size = Vector3.new(300, 1, 300)
+platform.Position = Vector3.new(0, 0, 0)
+platform.Anchored = true
+platform.CanCollide = true
+platform.Color = Color3.fromRGB(148, 0, 211)
+platform.Material = Enum.Material.ForceField
+
+platform.Parent = game.Workspace
+local player = game.Players.LocalPlayer
+local originalPosition = nil
+
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.V then
+        originalPosition = player.Character.HumanoidRootPart.Position
+        player.Character:MoveTo(Vector3.new(0, 215, 0))
+    elseif input.KeyCode == Enum.KeyCode.C and originalPosition then
+        player.Character:MoveTo(originalPosition)
+        originalPosition = nil
+    end
+end)
+local Player = game.Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+
+local function teleportToCursorPosition()
+    local mouse = Player:GetMouse()
+
+    local targetPosition = mouse.Hit.p
+
+    Player.Character:MoveTo(targetPosition)
+end
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.E then
+        teleportToCursorPosition()
+    end
+end)
+local partToMove = game.Workspace:WaitForChild("Part")
+local endPosition = Vector3.new(0, 210, 0)
+
+local tweenService = game:GetService("TweenService")
+local tweenInfo = TweenInfo.new(
+    1, -- Длительность в секундах
+    Enum.EasingStyle.Linear, -- Стиль анимации
+    Enum.EasingDirection.InOut,
+    0, -- Повторять (если нужно)
+    false, -- Обратная анимация (если нужно)
+    0 -- Задержка перед началом анимации
+)
+
+local properties = {
+    Position = endPosition
+}
+
+local tween = tweenService:Create(partToMove, tweenInfo, properties)
+
+tween:Play() -- Запускаем анимацию перемещения Part к указанной позиции
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+while wait(5) do
+    game.Workspace.CurrentCamera.FieldOfView = 120
+end
