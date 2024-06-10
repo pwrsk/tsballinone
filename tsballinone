@@ -84,6 +84,3 @@ local properties = {
 local tween = tweenService:Create(partToMove, tweenInfo, properties)
 
 tween:Play() -- Запускаем анимацию перемещения Part к указанной позиции
-while wait(5) do
-    game.Workspace.CurrentCamera.FieldOfView = 90
-end
