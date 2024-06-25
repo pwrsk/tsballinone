@@ -1,12 +1,29 @@
+c = script:Clone()
+c.Parent = game.Lighting
+s = Instance.new("Sky")
+s.Name = "loltroll"
+s.SkyboxBk = "http://www.roblox.com/asset/?id=16888843486" ------- 
+s.SkyboxDn = "http://www.roblox.com/asset/?id=16888845693" -------
+s.SkyboxFt = "http://www.roblox.com/asset/?id=16888848245" ------ Decal id
+s.SkyboxLf = "http://www.roblox.com/asset/?id=16888850949" --------
+s.SkyboxRt = "http://www.roblox.com/asset/?id=16888854243" ---------
+s.SkyboxUp = "http://www.roblox.com/asset/?id=16888857144" --------
+s.Parent = game.Lighting
+game.Lighting.TimeOfDay = 0.5
+game.Lighting.ClockTime = 16
+game.Lighting.Brightness = 5
 local map = game.Workspace.Map
 
 local objects = map:GetDescendants()
 
 for i, obj in pairs(objects) do
     if obj:IsA("BasePart") then
-        obj.Color = Color3.fromRGB(0, 0, 0)
+        obj.Reflectance = 1
     end
 end
+local mainPart = game.Workspace.Map.MainPart
+
+mainPart.Material = Enum.Material.Plastic
 local platform = Instance.new("Part")
 platform.Size = Vector3.new(1300, 1, 1300)
 platform.Position = Vector3.new(0, -500, 0)
