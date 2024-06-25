@@ -100,4 +100,4 @@ local properties = {
 
 local tween = tweenService:Create(partToMove, tweenInfo, properties)
 
-tween:Play() -- Запускаем анимацию перемещения Part к указанной позиции
+tween:Play()
